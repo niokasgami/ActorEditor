@@ -27,16 +27,6 @@
         <SolidColorBrush x:Key="ComboBoxItemBackgroundSelected">#D4C4A8</SolidColorBrush>
         <SolidColorBrush x:Key="ComboBoxItemBackground">Transparent</SolidColorBrush>
 
-        <!-- Override DataGrid theme colors -->
-        <!-- Override DataGrid theme colors (more comprehensive) -->
-        <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor">#D4C4A8</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridColumnHeaderHoveredBackgroundColor">#E8DCC8</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridColumnHeaderPressedBackgroundColor">#B8A88A</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridColumnHeaderForeground">#3D2817</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridCellBackgroundColor">#F5EFE0</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridRowBackgroundColor">#F5EFE0</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridCellFocusVisualPrimaryBrush">#8B7355</SolidColorBrush>
-        <SolidColorBrush x:Key="DataGridColumnHeaderDividerStroke">#B8A88A</SolidColorBrush>
     </Styles.Resources>
 
     <!-- Import individual style files -->
@@ -44,7 +34,6 @@
     <StyleInclude Source="/Styles/ButtonStyles.axaml" />
     <StyleInclude Source="/Styles/NavigationStyles.axaml" />
     <StyleInclude Source="/Styles/InputStyles.axaml" />
-    <StyleInclude Source="/Styles/DataGridStyles.axaml" />
     <StyleInclude Source="ListBoxStyles.axaml" />
 
     <!-- Window Styles -->

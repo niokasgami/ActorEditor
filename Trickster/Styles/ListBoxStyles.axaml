@@ -1,0 +1,33 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ListBox Styles -->
+    <Style Selector="ListBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style Selector="ListBoxItem">
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="Padding" Value="10,8" />
+    </Style>
+
+    <!-- Alternating row colors -->
+    <Style Selector="ListBoxItem:nth-child(even)">
+        <Setter Property="Background" Value="{StaticResource ParchmentLight}" />
+    </Style>
+
+    <Style Selector="ListBoxItem:nth-child(odd)">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+    </Style>
+
+    <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ParchmentDark}" />
+    </Style>
+
+    <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource AccentPrimary}" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+</Styles>

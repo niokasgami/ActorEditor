@@ -1,0 +1,84 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Color Resources -->
+    <Styles.Resources>
+        <SolidColorBrush x:Key="ParchmentLight">#F5EFE0</SolidColorBrush>
+        <SolidColorBrush x:Key="ParchmentMedium">#E8DCC8</SolidColorBrush>
+        <SolidColorBrush x:Key="ParchmentDark">#D4C4A8</SolidColorBrush>
+
+        <SolidColorBrush x:Key="TextDark">#3D2817</SolidColorBrush>
+        <SolidColorBrush x:Key="TextMedium">#5D4E37</SolidColorBrush>
+        <SolidColorBrush x:Key="TextLight">#8B7355</SolidColorBrush>
+
+        <SolidColorBrush x:Key="AccentPrimary">#8B7355</SolidColorBrush>
+        <SolidColorBrush x:Key="AccentSecondary">#A68B5B</SolidColorBrush>
+
+        <SolidColorBrush x:Key="BorderLight">#D4C4A8</SolidColorBrush>
+        <SolidColorBrush x:Key="BorderMedium">#B8A88A</SolidColorBrush>
+
+        <!-- Override ComboBox theme colors -->
+        <SolidColorBrush x:Key="ComboBoxDropDownBackground">#F5EFE0</SolidColorBrush>
+        <SolidColorBrush x:Key="ComboBoxDropDownBorderBrush">#B8A88A</SolidColorBrush>
+
+        <!-- Override ComboBoxItem colors -->
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundPressed">#D4C4A8</SolidColorBrush>
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundPointerOver">#E8DCC8</SolidColorBrush>
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundSelected">#D4C4A8</SolidColorBrush>
+        <SolidColorBrush x:Key="ComboBoxItemBackground">Transparent</SolidColorBrush>
+
+        <!-- Override DataGrid theme colors -->
+        <!-- Override DataGrid theme colors (more comprehensive) -->
+        <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor">#D4C4A8</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridColumnHeaderHoveredBackgroundColor">#E8DCC8</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridColumnHeaderPressedBackgroundColor">#B8A88A</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridColumnHeaderForeground">#3D2817</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridCellBackgroundColor">#F5EFE0</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridRowBackgroundColor">#F5EFE0</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridCellFocusVisualPrimaryBrush">#8B7355</SolidColorBrush>
+        <SolidColorBrush x:Key="DataGridColumnHeaderDividerStroke">#B8A88A</SolidColorBrush>
+    </Styles.Resources>
+
+    <!-- Import individual style files -->
+    <StyleInclude Source="/Styles/TextStyles.axaml" />
+    <StyleInclude Source="/Styles/ButtonStyles.axaml" />
+    <StyleInclude Source="/Styles/NavigationStyles.axaml" />
+    <StyleInclude Source="/Styles/InputStyles.axaml" />
+    <StyleInclude Source="/Styles/DataGridStyles.axaml" />
+    <StyleInclude Source="ListBoxStyles.axaml" />
+
+    <!-- Window Styles -->
+    <Style Selector="Window">
+        <Setter Property="Background" Value="{StaticResource ParchmentLight}" />
+    </Style>
+
+    <!-- Menu Bar Styles -->
+    <Style Selector="Menu">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+    </Style>
+
+    <Style Selector="MenuItem">
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+    </Style>
+
+    <Style Selector="MenuItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ParchmentDark}" />
+    </Style>
+
+    <Style Selector="DockPanel.MenuBar">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+    </Style>
+
+    <Style Selector="Border.ContentPanel">
+        <Setter Property="Background" Value="{StaticResource ParchmentLight}" />
+        <Setter Property="Padding" Value="20" />
+    </Style>
+
+    <Style Selector="Border.SidebarPanel">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+        <Setter Property="Padding" Value="5" />
+    </Style>
+
+    <!-- ... other common styles ... -->
+</Styles>

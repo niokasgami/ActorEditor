@@ -1,0 +1,31 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Button.PrimaryButton">
+        <Setter Property="Background" Value="{StaticResource AccentPrimary}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Padding" Value="15,8" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="Button.PrimaryButton:pointerover">
+        <Setter Property="Background" Value="{StaticResource AccentSecondary}" />
+    </Style>
+
+    <Style Selector="Button.SecondaryButton">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="Padding" Value="15,8" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderMedium}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="Button.SecondaryButton:pointerover">
+        <Setter Property="Background" Value="{StaticResource ParchmentDark}" />
+    </Style>
+
+</Styles>

@@ -1,0 +1,222 @@
+<!-- Views/MainWindow.axaml -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Trickster.ViewModels"
+        x:Class="Trickster.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Width="1200" Height="700"
+        Title="Actor Editor"
+        Background="#F5EFE0">
+
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top" Background="#E8DCC8">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open..." 
+                          Command="{Binding OpenFileCommand}"
+                          CommandParameter="{Binding $parent[Window]}"
+                          InputGesture="Ctrl+O" />
+                <MenuItem Header="_Save" 
+                          Command="{Binding SaveFileCommand}"
+                          CommandParameter="{Binding $parent[Window]}"
+                          InputGesture="Ctrl+S" />
+                <MenuItem Header="Save _As..." 
+                          Command="{Binding SaveFileAsCommand}"
+                          CommandParameter="{Binding $parent[Window]}"
+                          InputGesture="Ctrl+Shift+S" />
+            </MenuItem>
+        </Menu>
+
+        <!-- Status Bar -->
+        <Border DockPanel.Dock="Bottom" 
+                Background="#E8DCC8" 
+                Padding="10,5"
+                BorderBrush="#D4C4A8" 
+                BorderThickness="0,1,0,0">
+            <TextBlock Text="{Binding StatusMessage}" FontSize="11" />
+        </Border>
+
+        <!-- Main Content -->
+        <Grid ColumnDefinitions="250,*" Margin="10">
+
+            <!-- Left Panel: Actor List -->
+            <Border Grid.Column="0" 
+                    Background="#E8DCC8" 
+                    Padding="10" 
+                    CornerRadius="8"
+                    Margin="0,0,10,0">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <TextBlock Grid.Row="0" 
+                               Text="🎭 Actors" 
+                               FontSize="18" 
+                               FontWeight="Bold"
+                               Margin="0,0,0,10" />
+
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding Actors}"
+                             SelectedItem="{Binding SelectedActor}"
+                             Background="Transparent"
+                             BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Spacing="3" Margin="5">
+                                    <TextBlock Text="{Binding Id}" 
+                                               FontWeight="Bold" 
+                                               FontSize="12" />
+                                    <TextBlock Text="{Binding DisplayName}" 
+                                               FontSize="11"
+                                               Opacity="0.7" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <StackPanel Grid.Row="2" Spacing="5" Margin="0,10,0,0">
+                        <Button Content="+ Add Actor" 
+                                Command="{Binding AddActorCommand}"
+                                HorizontalAlignment="Stretch"
+                                Background="#8B7355"
+                                Foreground="White" />
+                        <Button Content="🗑️ Delete Actor" 
+                                Command="{Binding DeleteActorCommand}"
+                                HorizontalAlignment="Stretch"
+                                Background="#D4C4A8" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Right Panel: Actor Details -->
+            <ScrollViewer Grid.Column="1">
+                <StackPanel Spacing="15" 
+                            IsEnabled="{Binding SelectedActor, Converter={x:Static ObjectConverters.IsNotNull}}">
+
+                    <!-- Basic Info -->
+                    <Border Background="#E8DCC8" Padding="15" CornerRadius="8">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="100,*">
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                                       Text="Basic Info" 
+                                       FontWeight="Bold" 
+                                       FontSize="14"
+                                       Margin="0,0,0,10" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Text="ID:" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,5" />
+                            <TextBox Grid.Row="1" Grid.Column="1"
+                                     Text="{Binding SelectedActor.Id}"
+                                     Watermark="e.g., tomo"
+                                     Margin="0,5" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="0"
+                                       Text="Display Name:" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,5" />
+                            <TextBox Grid.Row="2" Grid.Column="1"
+                                     Text="{Binding SelectedActor.DisplayName}"
+                                     Watermark="e.g., Tomo"
+                                     Margin="0,5" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Textures -->
+                    <Border Background="#E8DCC8" Padding="15" CornerRadius="8">
+                        <StackPanel Spacing="10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Grid.Column="0"
+                                           Text="Textures" 
+                                           FontWeight="Bold" 
+                                           FontSize="14" />
+                                <Button Grid.Column="1"
+                                        Content="+ Add Texture"
+                                        Command="{Binding AddTextureCommand}"
+                                        Background="#8B7355"
+                                        Foreground="White"
+                                        Padding="10,5" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="120,*,Auto">
+                                <TextBlock Grid.Column="0"
+                                           Text="Texture Set:" 
+                                           VerticalAlignment="Center" />
+                                <ComboBox Grid.Column="1"
+                                          ItemsSource="{Binding SelectedActor.TextureKeys}"
+                                          SelectedItem="{Binding SelectedTextureName}"
+                                          HorizontalAlignment="Stretch"
+                                          Margin="5,0" />
+                                <Button Grid.Column="2"
+                                        Content="🗑️"
+                                        Command="{Binding DeleteTextureCommand}"
+                                        Background="#D4C4A8"
+                                        Padding="8,5" />
+                            </Grid>
+
+                            <!-- Texture Details -->
+                            <Border Background="#F5EFE0" 
+                                    Padding="10" 
+                                    CornerRadius="4"
+                                    IsVisible="{Binding SelectedTexture, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Atlas Path:" FontSize="11" />
+                                    <TextBox Text="{Binding SelectedTexture.AtlasPath}"
+                                             Watermark="e.g., tomo_shizu_minigame.png" />
+
+                                    <TextBlock Text="Atlas Regions:" FontSize="11" Margin="0,10,0,0" />
+                                    
+                                    <Border Background="White"
+                                            BorderBrush="#D4C4A8"
+                                            BorderThickness="1"
+                                            CornerRadius="4"
+                                            Padding="10"
+                                            MaxHeight="250">
+                                        <ScrollViewer>
+                                            <ItemsControl ItemsSource="{Binding SelectedTexture.AtlasRegions}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="#F5EFE0"
+                                                                Padding="8"
+                                                                Margin="0,0,0,5"
+                                                                CornerRadius="3">
+                                                            <Grid ColumnDefinitions="120,*">
+                                                                <TextBlock Grid.Column="0"
+                                                                           Text="{Binding Key}"
+                                                                           FontWeight="SemiBold"
+                                                                           FontFamily="Consolas" />
+                                                                <StackPanel Grid.Column="1"
+                                                                            Orientation="Horizontal"
+                                                                            Spacing="12">
+                                                                    <TextBlock FontSize="11" FontFamily="Consolas">
+                                                                        <Run Text="x:" Foreground="#8B7355" />
+                                                                        <Run Text="{Binding Value.X}" />
+                                                                    </TextBlock>
+                                                                    <TextBlock FontSize="11" FontFamily="Consolas">
+                                                                        <Run Text="y:" Foreground="#8B7355" />
+                                                                        <Run Text="{Binding Value.Y}" />
+                                                                    </TextBlock>
+                                                                    <TextBlock FontSize="11" FontFamily="Consolas">
+                                                                        <Run Text="w:" Foreground="#8B7355" />
+                                                                        <Run Text="{Binding Value.Width}" />
+                                                                    </TextBlock>
+                                                                    <TextBlock FontSize="11" FontFamily="Consolas">
+                                                                        <Run Text="h:" Foreground="#8B7355" />
+                                                                        <Run Text="{Binding Value.Height}" />
+                                                                    </TextBlock>
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </ScrollViewer>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+    </DockPanel>
+</Window>

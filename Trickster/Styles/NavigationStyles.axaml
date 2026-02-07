@@ -1,0 +1,78 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Navigation Button Styles (RPG Maker style) -->
+    <Style Selector="Button.NavButton">
+        <Setter Property="Height" Value="70" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{StaticResource ParchmentDark}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderMedium}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0,0,0,2" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="3">
+                    <!-- Inner border -->
+                    <Border BorderBrush="{StaticResource ParchmentMedium}"
+                            BorderThickness="1"
+                            Background="{StaticResource ParchmentLight}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Hover state - slightly lighter -->
+    <Style Selector="Button.NavButton:pointerover">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+    </Style>
+
+    <!-- Selected state - matches sidebar background (ParchmentMedium) -->
+    <Style Selector="Button.NavButton.selected">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderThickness="0">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Pressed state - darker border -->
+    <Style Selector="Button.NavButton:pressed">
+        <Setter Property="BorderBrush" Value="{StaticResource TextDark}" />
+    </Style>
+
+    <!-- Text color styles -->
+    <Style Selector="Button.NavButton TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextMedium}" />
+    </Style>
+
+    <Style Selector="Button.NavButton.selected TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <!-- Text shadow for icon visibility -->
+    <Style Selector="Button.NavButton TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextMedium}" />
+        <Setter Property="TextElement.FontSize" Value="24" />
+    </Style>
+
+</Styles>

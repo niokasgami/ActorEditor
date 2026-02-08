@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Trickster/App.axaml" value="Trickster/Trickster.csproj" />
+        <entry key="Trickster/Styles/DataGridStyles.axaml" value="Trickster/Trickster.csproj" />
+        <entry key="Trickster/Styles/EditorStyles.axaml" value="Trickster/Trickster.csproj" />
+        <entry key="Trickster/Styles/InputStyles.axaml" value="Trickster/Trickster.csproj" />
+        <entry key="Trickster/Styles/ListBoxStyles.axaml" value="Trickster/Trickster.csproj" />
+        <entry key="Trickster/Views/MainWindow.axaml" value="Trickster/Trickster.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

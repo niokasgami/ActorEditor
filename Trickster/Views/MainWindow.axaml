@@ -252,49 +252,38 @@
                                                                             Margin="0,0,0,8" />
                                                                     
                                                                     <!-- Editable Fields -->
+                                                                    <!-- Editable Fields -->
                                                                     <Grid Grid.Row="1" Grid.ColumnSpan="2" ColumnDefinitions="100,80,80,80,80">
                                                                         <StackPanel Grid.Column="0" Spacing="3">
                                                                             <TextBlock Text="X:" 
-                                                                                       Classes="SmallText" />
-                                                                            <NumericUpDown Value="{Binding X}"
-                                                                                           Minimum="0"
-                                                                                           Maximum="10000"
-                                                                                           Increment="1"
-                                                                                           FormatString="F0"
-                                                                                           Height="28" />
+                                                                                    Classes="SmallText" />
+                                                                            <TextBox Text="{Binding X}"
+                                                                                    Watermark="0"
+                                                                                    Height="28" />
                                                                         </StackPanel>
-                                                                        
+    
                                                                         <StackPanel Grid.Column="1" Spacing="3" Margin="5,0,0,0">
                                                                             <TextBlock Text="Y:" 
-                                                                                       Classes="SmallText" />
-                                                                            <NumericUpDown Value="{Binding Y}"
-                                                                                           Minimum="0"
-                                                                                           Maximum="10000"
-                                                                                           Increment="1"
-                                                                                           FormatString="F0"
-                                                                                           Height="28" />
+                                                                                    Classes="SmallText" />
+                                                                            <TextBox Text="{Binding Y}"
+                                                                                    Watermark="0"
+                                                                                    Height="28" />
                                                                         </StackPanel>
-                                                                        
+    
                                                                         <StackPanel Grid.Column="2" Spacing="3" Margin="5,0,0,0">
                                                                             <TextBlock Text="Width:" 
-                                                                                       Classes="SmallText" />
-                                                                            <NumericUpDown Value="{Binding Width}"
-                                                                                           Minimum="0"
-                                                                                           Maximum="10000"
-                                                                                           Increment="1"
-                                                                                           FormatString="F0"
-                                                                                           Height="28" />
+                                                                                    Classes="SmallText" />
+                                                                            <TextBox Text="{Binding Width}"
+                                                                                    Watermark="128"
+                                                                                    Height="28" />
                                                                         </StackPanel>
-                                                                        
+    
                                                                         <StackPanel Grid.Column="3" Spacing="3" Margin="5,0,0,0">
                                                                             <TextBlock Text="Height:" 
-                                                                                       Classes="SmallText" />
-                                                                            <NumericUpDown Value="{Binding Height}"
-                                                                                           Minimum="0"
-                                                                                           Maximum="10000"
-                                                                                           Increment="1"
-                                                                                           FormatString="F0"
-                                                                                           Height="28" />
+                                                                                    Classes="SmallText" />
+                                                                            <TextBox Text="{Binding Height}"
+                                                                                    Watermark="128"
+                                                                                    Height="28" />
                                                                         </StackPanel>
                                                                     </Grid>
                                                                 </Grid>

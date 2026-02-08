@@ -1,63 +1,66 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
+﻿<!-- Trickster/Styles/InputStyles.axaml -->
+<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- TextBox Styles -->
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderMedium}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="8,5" />
+        <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <Style Selector="TextBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+
+    <Style Selector="TextBox:pointerover">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
+    </Style>
+
+    <!-- ComboBox Styles -->
+    <Style Selector="ComboBox">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderMedium}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <Style Selector="ComboBox:pointerover">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
+    </Style>
+
+    <Style Selector="ComboBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
+    </Style>
+
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="Padding" Value="8,5" />
+    </Style>
+
+    <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ParchmentMedium}" />
+    </Style>
+
+    <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ParchmentDark}" />
+    </Style>
 
     <!-- CheckBox Styles -->
     <Style Selector="CheckBox">
         <Setter Property="Foreground" Value="{StaticResource TextDark}" />
     </Style>
 
-    <!-- CheckBox border (unchecked) -->
-    <Style Selector="CheckBox /template/ Border#NormalRectangle">
-        <Setter Property="BorderBrush" Value="{StaticResource BorderMedium}" />
-        <Setter Property="Background" Value="{StaticResource ParchmentLight}" />
-    </Style>
-
-    <!-- CheckBox checked state -->
-    <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-        <Setter Property="Background" Value="{StaticResource AccentPrimary}" />
-        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
-    </Style>
-
-    <!-- CheckBox hover -->
-    <Style Selector="CheckBox:pointerover /template/ Border#NormalRectangle">
-        <Setter Property="BorderBrush" Value="{StaticResource AccentPrimary}" />
-    </Style>
-
-    <!-- CheckBox checkmark color -->
-    <Style Selector="CheckBox /template/ Path#CheckGlyph">
-        <Setter Property="Stroke" Value="White" />
-    </Style>
-
-    <!-- RadioButton Styles -->
-    <Style Selector="RadioButton">
-        <Setter Property="Foreground" Value="{StaticResource TextDark}" />
-    </Style>
-
-    <!-- RadioButton circle (unchecked) -->
-    <Style Selector="RadioButton /template/ Ellipse#OuterEllipse">
-        <Setter Property="Stroke" Value="{StaticResource BorderMedium}" />
-        <Setter Property="Fill" Value="{StaticResource ParchmentLight}" />
-    </Style>
-
-    <!-- RadioButton checked state -->
-    <Style Selector="RadioButton:checked /template/ Ellipse#OuterEllipse">
-        <Setter Property="Stroke" Value="{StaticResource AccentPrimary}" />
-        <Setter Property="Fill" Value="{StaticResource AccentPrimary}" />
-    </Style>
-
-    <!-- RadioButton hover -->
-    <Style Selector="RadioButton:pointerover /template/ Ellipse#OuterEllipse">
-        <Setter Property="Stroke" Value="{StaticResource AccentPrimary}" />
-    </Style>
-
-    <!-- RadioButton inner dot color -->
-    <Style Selector="RadioButton /template/ Ellipse#CheckGlyph">
-        <Setter Property="Fill" Value="White" />
-    </Style>
-
     <!-- NumericUpDown Styles -->
     <Style Selector="NumericUpDown">
         <Setter Property="Foreground" Value="{StaticResource TextDark}" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
     <Style Selector="NumericUpDown /template/ TextBox">
